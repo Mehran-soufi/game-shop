@@ -1,0 +1,161 @@
+@mixin button {
+  outline: none;
+  border: none;
+  background-image: -webkit-linear-gradient(0deg, #a234d9 30%, #7830db 70%);
+  color: $whiteColr;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 550;
+  font-family: $titleFont;
+  transition: $transition;
+  @content;
+}
+
+@mixin buttonHover {
+  transform: scale(1.1);
+}
+
+@mixin logo {
+  font-family: $logoFont;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: $color;
+  background-image: -webkit-linear-gradient(0deg, #a234d9 30%, #7830db 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin query($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin queryMin($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin category {
+  width: 100%;
+  height: 150px;
+  @include query(800px) {
+    height: 130px;
+  }
+  @include query(450px) {
+    height: 110px;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    transform: scale(1.03);
+  }
+  .catgory-img {
+    width: 40%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .category-det {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2 {
+      font-size: 2rem;
+      color: $whiteColr;
+      @include query(800px) {
+        font-size: 1.7rem;
+      }
+      @include query(450px) {
+        font-size: 1.3rem;
+      }
+    }
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      padding: 0.5rem 3rem;
+      border-radius: 0.4rem;
+      background: $color3;
+      color: $whiteColr;
+      transition: $transition;
+      @include query(800px) {
+        font-size: 1.2rem;
+        padding: 0.4rem 2.5rem;
+      }
+      @include query(450px) {
+        font-size: 1.1rem;
+        padding: 0.3rem 2rem;
+      }
+      @include query(350px) {
+        font-size: 0.9rem;
+        padding: 0.2rem 1.7rem;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+      i {
+        margin-left: 0.3rem;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  @content;
+}
+
+@mixin spanImage {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $whiteColr;
+  background-color: rgba(140, 136, 136, 0.541);
+  @include query(380px) {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin colorProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+  background-color: #d1d8e0;
+  @include query(450px){
+    width: 20px;
+    height: 20px;
+  }
+}
+@mixin spanColorProduct {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  @include query(450px){
+    width: 15px;
+    height: 15px;
+  }
+  @content;
+}
