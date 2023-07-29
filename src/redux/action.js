@@ -50,7 +50,7 @@ export const getProductSearch = () => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.get("http://kzico.runflare.run/product/");
+    const { data } = await axios.get("https://kzico.runflare.run/product/");
     dispatch({
       type: searchSuccess,
       payload: { data: [...data], error: "", loading: false },
@@ -83,7 +83,7 @@ export const getProducts = () => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.get("http://kzico.runflare.run/product/");
+    const { data } = await axios.get("https://kzico.runflare.run/product/");
     dispatch({
       type: productSuccess,
       payload: { data: [...data], error: "", loading: false },
@@ -116,7 +116,7 @@ export const getOneProduct = (_id) => async (dispatch, getState) => {
   });
   try {
     const { data } = await axios.get(
-      `http://kzico.runflare.run/product/${_id ? `${_id}` : ""}`
+      `https://kzico.runflare.run/product/${_id ? `${_id}` : ""}`
     );
     dispatch({
       type: productOneSuccess,
@@ -150,7 +150,7 @@ export const postSignUp = (values) => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.post("http://kzico.runflare.run/user/signup", {
+    const { data } = await axios.post("https://kzico.runflare.run/user/signup", {
       username: values.username.toString(),
       email: values.email.toString(),
       password: values.password.toString(),
@@ -194,7 +194,7 @@ export const postSignIn = (values) => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.post("http://kzico.runflare.run/user/login", {
+    const { data } = await axios.post("https://kzico.runflare.run/user/login", {
       email: values.email.toString(),
       password: values.password.toString(),
     });
@@ -239,7 +239,7 @@ export const getProfile = () => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.get("http://kzico.runflare.run/user/profile", {
+    const { data } = await axios.get("https://kzico.runflare.run/user/profile", {
       headers: {
         authorization: `Bearer ${JSON.parse(
           localStorage.getItem("userToken")
@@ -279,7 +279,7 @@ export const putChangeProfile = (values) => async (dispatch, getState) => {
   });
   try {
     const { data } = await axios.put(
-      "http://kzico.runflare.run/user/change-profile",
+      "https://kzico.runflare.run/user/change-profile",
       {
         firstname: values.firstName.toString(),
         lastname: values.lastName.toString(),
@@ -335,7 +335,7 @@ export const putChangePassword = (values) => async (dispatch, getState) => {
   });
   try {
     const { data } = await axios.put(
-      "http://kzico.runflare.run/user/change-password",
+      "https://kzico.runflare.run/user/change-password",
       {
         old_password: values.oldPassword.toString(),
         new_password: values.newPassword.toString(),
@@ -488,7 +488,7 @@ export const postOrder =
     });
     try {
       const { data } = await axios.post(
-        "http://kzico.runflare.run/order/submit",
+        "https://kzico.runflare.run/order/submit",
         {
           orderItems: cartItem.map((item) => ({
             product: item._id,
@@ -551,7 +551,7 @@ export const getOrders = () => async (dispatch, getState) => {
     payload: { data: [], error: "", loading: true },
   });
   try {
-    const { data } = await axios.get("http://kzico.runflare.run/order/", {
+    const { data } = await axios.get("https://kzico.runflare.run/order/", {
       headers: {
         authorization: `Bearer ${JSON.parse(
           localStorage.getItem("userToken")
@@ -591,7 +591,7 @@ export const getOrdersId = (_id) => async (dispatch, getState) => {
   });
   try {
     const { data } = await axios.get(
-      `http://kzico.runflare.run/order/${_id ? `${_id}` : ""}`,
+      `https://kzico.runflare.run/order/${_id ? `${_id}` : ""}`,
       {
         headers: {
           authorization: `Bearer ${JSON.parse(

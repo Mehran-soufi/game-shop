@@ -20,7 +20,7 @@ const ChangeAvatar = () => {
     setPicLoading(true);
     try {
       const { data } = await axios.post(
-        "http://kzico.runflare.run/user/profile-image",
+        "https://kzico.runflare.run/user/profile-image",
         formData,
         {
           headers: {
